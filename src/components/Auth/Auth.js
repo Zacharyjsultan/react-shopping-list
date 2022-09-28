@@ -1,4 +1,4 @@
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, Redirect, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import './Auth.css';
@@ -18,6 +18,8 @@ export default function Auth() {
     setEmail('');
     setPassword('');
   };
+
+  if (user) { return <Redirect to="/items" />; }
 
   return (
     <div className="auth box">
