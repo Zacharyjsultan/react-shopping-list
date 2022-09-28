@@ -16,7 +16,9 @@ function App() {
       <Switch>
         <Route path="/auth/:type" component={Auth} />
         <Route path="/items" component={Items} />
-        <Redirect to="/auth/sign-in" />
+        <Route exact path="/">
+          <Redirect to="/auth/sign-in" />
+        </Route>
       </Switch>
     </div>
   );
