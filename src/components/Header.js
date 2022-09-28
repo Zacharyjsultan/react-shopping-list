@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../context/UserContext';
 
 import { signOut } from '../services/auth';
 
 export default function Header() {
   const [isActive, setIsActive] = useState(false);
   // TODO -- replace this user with the user from context
-  const user = { email: 'this is a placeholder' };
+  const { user, setUser } = useContext(UserContext);
 
   const handleLogout = async () => {
     try {
@@ -21,7 +22,7 @@ export default function Header() {
   return (
     <nav className="navbar is-success" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
-        <h1 className="navbar-item is-size-4 has-text-light">🛒 Alchemy Shopping 🛒</h1>
+        <h1 className="navbar-item is-size-4 has-text-light">🛒 Alchemy Chopping 🛒</h1>
         <a
           role="button"
           className={`navbar-burger ${isActive ? 'is-active' : ''}`}
